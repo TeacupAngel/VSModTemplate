@@ -5,12 +5,12 @@
         <Version>0.1.0</Version>
         <Description>Description of your mod</Description>
         <RepositoryUrl>https://github.com/You/YourModRepo</RepositoryUrl>
-        <TargetFramework>net461</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <PropertyGroup>
         <ModId>modid</ModId>
-        <VSVersion>1.18.0-pre.6</VSVersion>
+        <VSVersion>1.18.10</VSVersion>
         <ModWebsite>https://mods.vintagestory.at/yourmodpage</ModWebsite>
     </PropertyGroup>
     <ItemGroup>
@@ -45,7 +45,7 @@
             <HintPath>$(VINTAGE_STORY)/Lib/cairo-sharp.dll</HintPath>
             <Private>false</Private>
         </Reference>
-        <Reference Include="protobuf-net" Version="2.1.0">
+        <Reference Include="protobuf-net">
             <HintPath>$(VINTAGE_STORY)/Lib/protobuf-net.dll</HintPath>
             <Private>false</Private>
         </Reference>
@@ -58,8 +58,14 @@
             <Private>false</Private>
         </Reference>
     </ItemGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DebugType>full</DebugType>
+     <PropertyGroup>
+        <DebugType>portable</DebugType>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+		<AnalysisMode>Minimum</AnalysisMode>
+    </PropertyGroup>
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);Launcher/**</DefaultItemExcludes>
     </PropertyGroup>
     
     <Target Name="BaseTarget">
